@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Reset some default styles */
+        
+        
+        body, h1, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* Star animation */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('img/pexels-photo-1257860.jpeg'); /* Replace with the path to your image */
+            background-size: cover;
+            animation: animateStars 200s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes animateStars {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-50%);
+            }
+        }
+
+        /* Header styles */
+        header {
+            background-color: #262626;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Navigation styles */
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+
+        /* Main content styles */
+        .container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #262626;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Star styles */
+        .star {
+            position: absolute;
+            background-color: #fff;
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            opacity: 0.8;
+        }
+
+        /* AI Section styles */
+        .ai-section {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        /* CEO Section styles */
+        .ceo-section {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            margin-top: 30px;
+            color: gold; /* Text color for CEO section */
+        }
+
+        /* Responsive media query */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+    <title>Petros Global Enterprises</title>
+</head>
+<body>
+    <div class="stars"></div>
+    
+    <header>
+        <h1 style="color: gold;">Petros Global Enterprises</h1>
+        <p>Your Success, Our Priority</p>
+    </header>
+    
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Services</a>
+        <a href="#">Portfolio</a>
+        <a href="#">Contact</a>
+    </nav>
+    
+    <div class="container">
+        <h2>Welcome to Petros Global Enterprises</h2>
+        <p>This is the right place to be</p>
+        
+        <!-- AI Section -->
+        <section class="ai-section">
+            <h3>Discover AI Innovation</h3>
+            <p>Explore the future with AI technologies.</p>
+            <div id="ai-content">
+                <!-- AI-generated content can be displayed here -->
+            </div>
+            
+            <h3>Ask the AI</h3>
+            <div>
+                <input type="text" id="question" placeholder="Ask a question">
+                <button onclick="askAI()">Ask</button>
+            </div>
+            <div id="ai-response"></div>
+        </section>
+        
+        <!-- CEO Section -->
+        <section class="ceo-section">
+            <h3>About Our CEO - Peter Nwokoye</h3>
+            <div class="ceo-details">
+                <img src="img/peter-nwokoye.jpg" alt="Peter Nwokoye - CEO">
+                <p>Peter Nwokoye is the visionary leader and CEO of Petros Global Enterprises. With a deep passion for innovation and a strong commitment to excellence, Peter has led our company to new heights in the world of business and technology.</p>
+                <p>Under his guidance, Petros Global Enterprises has consistently delivered top-notch solutions to our clients, driven by a combination of cutting-edge technology and strategic insights.</p>
+                <p>Peter's dedication to empowering businesses and individuals alike has earned him a reputation as a thought leader in the industry. His unwavering belief in the power of teamwork and a customer-centric approach has been instrumental in our company's success.</p>
+                <p>As a visionary and a trailblazer, Peter Nwokoye continues to inspire our team to reach greater heights, ensuring that Petros Global Enterprises remains at the forefront of innovation and business excellence.</p>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        &copy; 2023 Petros Global Enterprises. All rights reserved.
+    </footer>
+
+    <script>
+        const numStars = 100;
+
+        for (let i = 0; i < numStars; i++) {
+            createStar();
+        }
+
+        function createStar() {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100}%`;
+            star.style.animationDuration = `${Math.random() * 5 + 3}s`; // Vary the animation duration
+            document.querySelector('.container').appendChild(star);
+        }
+
+        function askAI() {
+            const question = document.getElementById('question').value;
+            const aiResponse = simulateAIResponse(question);
+            document.getElementById('ai-response').innerHTML = aiResponse;
+        }
+
+        function simulateAIResponse(question) {
+            // Simulate an AI-generated response based on the question
+            return `AI response to "${question}" goes here.`;
+        }
+
+        // Simulate AI-generated content (for demonstration purposes)
+        const aiContent = document.getElementById('ai-content');
+        const aiGeneratedText = "AI is revolutionizing industries and shaping the future.";
+        aiContent.innerText = aiGeneratedText;
+    </script>
+</body>
+</html>
